@@ -1,6 +1,6 @@
 {
   "name": "aws-lambda-base",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Proyecto base para funciones Lambda en AWS",
   "scripts": {
     "init": "ts-node scripts/init.ts",
@@ -15,12 +15,20 @@
     "build": "tsc",
     "clean": "rm -rf node_modules",
     "prepare": "husky install",
+    "deploy:testing": "tsc && AWS_PROFILE=microcentrum claudia update --version testing --runtime nodejs16.x --memory 128 --timeout 600",
+    "deploy:production": "AWS_PROFILE=microcentrum claudia set-version --version production",
+    "deploy:full": "npm run deploy:testing && npm run deploy:production",
     "new:updDependencies": "npm version --no-git-tag-version patch && git add . && git commit -m '[UPD]' -e && git push",
     "new:FIX": "npm version --no-git-tag-version patch && git add . && git commit -m '[FIX]' -e && git push",
     "new:REFACTOR": "npm version --no-git-tag-version patch && git add . && git commit -m '[REFACTOR]' -e && git push",
     "new:FEAT": "npm version --no-git-tag-version minor && git add . && git commit -m '[FEAT]' -e && git push",
     "new:noDeploy": "git add . && git commit -m '[NODEPLOY]' -e && git push",
     "use-nvm": ". ~/.nvm/nvm.sh && nvm use"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run deploy:full"
+    }
   },
   "dependencies": {
     "jsonrepair": "^3.12.0"

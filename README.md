@@ -14,7 +14,7 @@ Este es un proyecto base para crear funciones Lambda en AWS usando TypeScript, s
 1. Clona este repositorio:
 
 ```bash
-git clone https://github.com/mrioseco/aws-lambda-base.git
+git clone https://github.com/mrioseco/aws-lambda-base.git nombre-de-la-carpeta
 ```
 
 2. Instala las dependencias:

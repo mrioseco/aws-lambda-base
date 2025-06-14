@@ -4,6 +4,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 exports.__esModule = true;
 exports.handler = void 0;
-var AbstraLambdaHandler_1 = __importDefault(require("./AbstraLambdaHandler"));
+var AbstraLambdaHandler_1 = __importDefault(require("./adapters/AbstraLambdaHandler"));
 var main_1 = __importDefault(require("./main"));
 exports.handler = (0, AbstraLambdaHandler_1["default"])(main_1["default"]);

@@ -39,31 +39,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 exports.__esModule = true;
-var AbstraOutput_1 = __importDefault(require("./adapters/AbstraOutput"));
-var get_1 = __importDefault(require("./controllers/get"));
-var post_1 = __importDefault(require("./controllers/post"));
+var AbstraOutput_1 = __importDefault(require("../adapters/AbstraOutput"));
 exports["default"] = (function (abstraInput) { return __awaiter(void 0, void 0, void 0, function () {
-    var payload, respuestaRaw, resp;
+    var resp;
     return __generator(this, function (_a) {
         console.log({
             environment: process.env.NODE_ENV,
             event: JSON.stringify(abstraInput)
         });
-        payload = abstraInput.body;
-        if (abstraInput.eventType === "API_GATEWAY") {
-            if (abstraInput.httpMethod === "GET") {
-                return [2, (0, get_1["default"])(abstraInput)];
-            }
-        }
-        if (abstraInput.eventType === "API_GATEWAY") {
-            if (abstraInput.httpMethod === "POST") {
-                return [2, (0, post_1["default"])(abstraInput)];
-            }
-        }
-        respuestaRaw = { misalida: "Chao" };
         resp = (0, AbstraOutput_1["default"])({
             statusCode: 200,
-            body: respuestaRaw,
+            body: {},
             enableCORS: true
         });
         return [2, resp];

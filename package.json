@@ -1,10 +1,9 @@
 {
   "name": "aws-lambda-base",
-  "version": "0.0.2",
-  "description": "Proyecto base para un nuevo aws lambda",
-  "main": "index.js",
+  "version": "1.1.0",
+  "description": "Proyecto base para funciones Lambda en AWS",
   "scripts": {
-    "init": "npm run use-nvm",
+    "init": "ts-node scripts/init.ts",
     "local": "npm run init && tsc && node-lambda run -j './events/evento1.json'",
     "cloud": "claudia test-lambda --event './events/evento1.json'",
     "transpile": "tsc",
@@ -12,24 +11,33 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "test:coverage-all": "jest --coverage --watchAll",
-    "refreshDependencies": "npm i -s cl-abstra-function@latest",
+    "lint": "eslint . --ext .ts",
+    "build": "tsc",
+    "clean": "rm -rf node_modules",
+    "prepare": "husky install",
     "new:updDependencies": "npm version --no-git-tag-version patch && git add . && git commit -m '[UPD]' -e && git push",
     "new:FIX": "npm version --no-git-tag-version patch && git add . && git commit -m '[FIX]' -e && git push",
     "new:REFACTOR": "npm version --no-git-tag-version patch && git add . && git commit -m '[REFACTOR]' -e && git push",
     "new:FEAT": "npm version --no-git-tag-version minor && git add . && git commit -m '[FEAT]' -e && git push",
     "new:noDeploy": "git add . && git commit -m '[NODEPLOY]' -e && git push",
-    "redisClean": "/etc/init.d/redis-server stop && /etc/init.d/redis-server start",
     "use-nvm": ". ~/.nvm/nvm.sh && nvm use"
   },
-  "author": "Manuel Rioseco",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/jest": "^26.0.24",
-    "jest": "^26.6.3",
-    "ts-jest": "^26.5.6",
-    "typescript": "^4.9.5"
-  },
   "dependencies": {
-    "jsonrepair": "^3.6.0"
+    "jsonrepair": "^3.12.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.0.0",
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "claudia": "^5.0.0",
+    "eslint": "^8.0.0",
+    "husky": "^8.0.0",
+    "inquirer": "^9.0.0",
+    "jest": "^29.0.0",
+    "node-lambda": "^1.0.0",
+    "ts-jest": "^29.0.0",
+    "ts-node": "^10.0.0",
+    "typescript": "^5.0.0"
   }
 }

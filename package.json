@@ -1,6 +1,6 @@
 {
   "name": "aws-lambda-base",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Proyecto base para funciones Lambda en AWS",
   "scripts": {
     "init": "ts-node scripts/init.ts",
@@ -15,6 +15,7 @@
     "build": "tsc",
     "clean": "rm -rf node_modules",
     "prepare": "husky install",
+    "postinstall": "chmod +x .husky/pre-push",
     "deploy:testing": "tsc && AWS_PROFILE=microcentrum claudia update --version testing --runtime nodejs16.x --memory 128 --timeout 600",
     "deploy:production": "AWS_PROFILE=microcentrum claudia set-version --version production",
     "deploy:full": "npm run deploy:testing && npm run deploy:production",

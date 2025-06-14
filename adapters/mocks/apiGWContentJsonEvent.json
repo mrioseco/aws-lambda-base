@@ -1,0 +1,93 @@
+{
+    "resource": "/boletasxml",
+    "path": "/qa/boletasxml",
+    "httpMethod": "POST",
+    "headers": {
+        "Accept": "*/*",
+        "Accept-Encoding": "gzip, deflate",
+        "cache-control": "no-cache",
+        "CloudFront-Forwarded-Proto": "https",
+        "CloudFront-Is-Desktop-Viewer": "true",
+        "CloudFront-Is-Mobile-Viewer": "false",
+        "CloudFront-Is-SmartTV-Viewer": "false",
+        "CloudFront-Is-Tablet-Viewer": "false",
+        "CloudFront-Viewer-Country": "CL",
+        "Content-Type": "application/json",
+        "Host": "api.bigdte.cl",
+        "Postman-Token": "7d8d1490-cc3c-47e8-8f27-e59f456aab55",
+        "User-Agent": "PostmanRuntime/7.1.5",
+        "Via": "1.1 1156b00a32ef474e9b51a603424ddb97.cloudfront.net (CloudFront)",
+        "X-Amz-Cf-Id": "OVB9mT2XiUYK5gpyf_BvxBl8y97fhB1YVgF6A6-r36awkfwBC9ZjUA==",
+        "X-Amzn-Trace-Id": "Root=1-5f1f263e-de95685ac884f1b5cd26ecd4",
+        "x-api-key": "eM+Gz/k/6WUFqOj3PksDBsAt93n4UbhWjLnoBwGhCgE=",
+        "X-Forwarded-For": "164.77.169.135, 64.252.175.147",
+        "X-Forwarded-Port": "443",
+        "X-Forwarded-Proto": "https"
+    },
+    "multiValueHeaders": {
+        "Accept": ["*/*"],
+        "Accept-Encoding": ["gzip, deflate"],
+        "cache-control": ["no-cache"],
+        "CloudFront-Forwarded-Proto": ["https"],
+        "CloudFront-Is-Desktop-Viewer": ["true"],
+        "CloudFront-Is-Mobile-Viewer": ["false"],
+        "CloudFront-Is-SmartTV-Viewer": ["false"],
+        "CloudFront-Is-Tablet-Viewer": ["false"],
+        "CloudFront-Viewer-Country": ["CL"],
+        "Content-Type": ["application/xml"],
+        "Host": ["api.bigdte.cl"],
+        "Postman-Token": ["7d8d1490-cc3c-47e8-8f27-e59f456aab55"],
+        "User-Agent": ["PostmanRuntime/7.1.5"],
+        "Via": [
+            "1.1 1156b00a32ef474e9b51a603424ddb97.cloudfront.net (CloudFront)"
+        ],
+        "X-Amz-Cf-Id": [
+            "OVB9mT2XiUYK5gpyf_BvxBl8y97fhB1YVgF6A6-r36awkfwBC9ZjUA=="
+        ],
+        "X-Amzn-Trace-Id": ["Root=1-5f1f263e-de95685ac884f1b5cd26ecd4"],
+        "x-api-key": ["eM+Gz/k/6WUFqOj3PksDBsAt93n4UbhWjLnoBwGhCgE="],
+        "X-Forwarded-For": ["164.77.169.135, 64.252.175.147"],
+        "X-Forwarded-Port": ["443"],
+        "X-Forwarded-Proto": ["https"]
+    },
+    "queryStringParameters": null,
+    "multiValueQueryStringParameters": null,
+    "pathParameters": null,
+    "stageVariables": {
+        "lambdaAlias": "testing"
+    },
+    "requestContext": {
+        "resourceId": "611u4v",
+        "resourcePath": "/boletasxml",
+        "httpMethod": "POST",
+        "extendedRequestId": "QWLpzEFuIAMFlGg=",
+        "requestTime": "27/Jul/2020:19:08:46 +0000",
+        "path": "/qa/boletasxml",
+        "accountId": "424721259732",
+        "protocol": "HTTP/1.1",
+        "stage": "test",
+        "domainPrefix": "api",
+        "requestTimeEpoch": 1595876926610,
+        "requestId": "ef2f5cbe-cf48-4c5c-b365-7d18dc204908",
+        "identity": {
+            "cognitoIdentityPoolId": null,
+            "cognitoIdentityId": null,
+            "apiKey": "eM+Gz/k/6WUFqOj3PksDBsAt93n4UbhWjLnoBwGhCgE=",
+            "principalOrgId": null,
+            "cognitoAuthenticationType": null,
+            "userArn": null,
+            "apiKeyId": "mtv9goirj1",
+            "userAgent": "PostmanRuntime/7.1.5",
+            "accountId": null,
+            "caller": null,
+            "sourceIp": "164.77.169.135",
+            "accessKey": null,
+            "cognitoAuthenticationProvider": null,
+            "user": null
+        },
+        "domainName": "api.bigdte.cl",
+        "apiId": "7szsy1rpb6"
+    },
+    "body": "{\"Type\" : \"SubscriptionConfirmation\", \"SubscribeURL\":\"http://www.facturae.cl\"}",
+    "isBase64Encoded": false
+}

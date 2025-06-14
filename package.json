@@ -1,0 +1,35 @@
+{
+  "name": "aws-lambda-base",
+  "version": "0.0.2",
+  "description": "Proyecto base para un nuevo aws lambda",
+  "main": "index.js",
+  "scripts": {
+    "init": "npm run use-nvm",
+    "local": "npm run init && tsc && node-lambda run -j './events/evento1.json'",
+    "cloud": "claudia test-lambda --event './events/evento1.json'",
+    "transpile": "tsc",
+    "test": "jest --no-watchman",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:coverage-all": "jest --coverage --watchAll",
+    "refreshDependencies": "npm i -s cl-abstra-function@latest",
+    "new:updDependencies": "npm version --no-git-tag-version patch && git add . && git commit -m '[UPD]' -e && git push",
+    "new:FIX": "npm version --no-git-tag-version patch && git add . && git commit -m '[FIX]' -e && git push",
+    "new:REFACTOR": "npm version --no-git-tag-version patch && git add . && git commit -m '[REFACTOR]' -e && git push",
+    "new:FEAT": "npm version --no-git-tag-version minor && git add . && git commit -m '[FEAT]' -e && git push",
+    "new:noDeploy": "git add . && git commit -m '[NODEPLOY]' -e && git push",
+    "redisClean": "/etc/init.d/redis-server stop && /etc/init.d/redis-server start",
+    "use-nvm": ". ~/.nvm/nvm.sh && nvm use"
+  },
+  "author": "Manuel Rioseco",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^26.0.24",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.5.6",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "jsonrepair": "^3.6.0"
+  }
+}

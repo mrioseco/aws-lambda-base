@@ -1,0 +1,46 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - npm install claudia -g
+      - echo Process Access to verdaccio...
+      - npm install -g npm-cli-login
+      - npm-cli-login -u codebuild -p $VERDACCIO_CODEBUILD_PASS -e codebuild@abstrahere.com -r http://verdaccio.abstrahere.com:4873
+      - npm set registry http://verdaccio.abstrahere.com:4873
+      #- echo Installing JEST...
+      #- npm install --save-dev jest --silent
+  pre_build:
+    commands:
+      - echo Installing source NPM dependencies...
+      - npm install
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Compiling the Node.js code
+      - npm run transpile
+      # - npm run test
+      # - npm run build:$ENVIRONMENT
+  post_build:
+    commands:
+      - bash -c "if [ /"$CODEBUILD_BUILD_SUCCEEDING/" == /"0/" ]; then exit 1; fi"
+      - echo Build completed on `date`
+      #- claudia update --version testing --runtime nodejs16.x --memory 256 --timeout 600
+      - apt-get install jq -y
+      - claudia pack --output pack.zip --no-optional-dependencies --omit=dev
+      - aws lambda update-function-configuration --function-name $(jq -r .name package.json) --runtime nodejs18.x --memory-size 128 --timeout 30
+      - sleep 30
+      - aws lambda  update-function-code --function-name $(jq -r .name package.json) --zip-file fileb://pack.zip
+      - sleep 30
+      - claudia set-version --version testing
+      # - npm publish
+      # - aws s3 sync ./build $S3_BUCKET
+# Include only the files required for your application to run.
+# Do not use recursively include artifacts from node_modules directory as it will include unnecessary packages
+# used only for building and testing.
+# ExpressJS apps will need other artifact directories included (bin/*, public/*, routes/*, views/* etc).
+artifacts:
+  files:
+    - index.js

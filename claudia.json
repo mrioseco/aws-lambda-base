@@ -1,0 +1,7 @@
+{
+  "lambda": {
+    "role": "aws-lambda-base-executor",
+    "name": "aws-lambda-base",
+    "region": "us-east-1"
+  }
+}
